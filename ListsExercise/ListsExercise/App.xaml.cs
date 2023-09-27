@@ -10,7 +10,7 @@ namespace ListsExercise
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new Airbnb();
         }
 
         protected override void OnStart()
