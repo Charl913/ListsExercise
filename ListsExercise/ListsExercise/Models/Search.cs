@@ -8,5 +8,15 @@ namespace ListsExercise.Models
         public string Location { get; set; }
         public DateTime CheckIn { get; set; }
         public DateTime CheckOut { get; set; }
+
+        public string Period 
+        { 
+            get 
+            {
+                return string.Format("{0} - {1}",
+                    CheckIn.ToString("MMM dd, yyyy"),
+                    CheckOut.ToString("MMM dd, yyyy"));
+            }
+        }
     }
 }

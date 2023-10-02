@@ -33,5 +33,11 @@ namespace ListsExercise
 
             };
         }
+
+        private void listView_ItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            var search = e.Item as Search;
+            DisplayAlert("Tapped", search.Location, "OK");
+        }
     }
 }

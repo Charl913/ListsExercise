@@ -3,31 +3,16 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ListsExercise.Airbnb">
     
-    <ListView x:Name="listView">
+    <ListView x:Name="listView"
+              ItemTapped="listView_ItemTapped">
         
         <ListView.ItemTemplate>
             
             <DataTemplate>
 
-                <ViewCell>
+                <TextCell Text="{Binding Location}" Detail="{Binding Period}">
                     
-                    <StackLayout Orientation="Vertical">
-
-                        <Label Text="{Binding Location}"/>
-
-                        <StackLayout Orientation="Horizontal">
-
-                            <Label Text="{Binding CheckIn, StringFormat='{0:MMM dd, yyyy}'}" />
-
-                            <Label Text="-"/>
-
-                            <Label Text="{Binding CheckOut, StringFormat='{0:MMM dd, yyyy}'}"/>
-
-                        </StackLayout>
-                        
-                    </StackLayout>
-
-                </ViewCell>
+                </TextCell>
                     
             </DataTemplate>
 
