@@ -9,9 +9,28 @@
             
             <DataTemplate>
 
-                <TextCell Text="{Binding Location}"/>
+                <ViewCell>
+                    
+                    <StackLayout Orientation="Vertical">
 
+                        <Label Text="{Binding Location}"/>
+
+                        <StackLayout Orientation="Horizontal">
+
+                            <Label Text="{Binding CheckIn, StringFormat='{0:MMM dd, yyyy}'}" />
+
+                            <Label Text="-"/>
+
+                            <Label Text="{Binding CheckOut, StringFormat='{0:MMM dd, yyyy}'}"/>
+
+                        </StackLayout>
+                        
+                    </StackLayout>
+
+                </ViewCell>
+                    
             </DataTemplate>
+
             
         </ListView.ItemTemplate>
         

@@ -4,11 +4,12 @@ using System.Text;
 
 namespace ListsExercise.Models
 {
-    public class SearchGroup
+    public class SearchGroup: Search
     {
-        public SearchGroup()
+        public string Title { get; set; }
+        public SearchGroup(string title)
         {
-            
+            Title = title;
         }
     }
 }

@@ -1,9 +1,6 @@
 ﻿using ListsExercise.Models;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -19,7 +16,7 @@ namespace ListsExercise
 
             listView.ItemsSource = new List<Search> 
             {
-                new Search 
+                new Search
                 {
                     Id = 1,
                     Location = "West Hollywood, CA, United States",
@@ -33,6 +30,7 @@ namespace ListsExercise
                     CheckIn = new DateTime(2016, 9, 1),
                     CheckOut = new DateTime(2016, 11, 1)
                 }
+
             };
         }
     }
