@@ -1,7 +1,7 @@
 ﻿using ListsExercise.Models;
 using System;
 using System.Collections.Generic;
-
+using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,11 +10,10 @@ namespace ListsExercise
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class Airbnb : ContentPage
     {
-        public Airbnb()
+        private ObservableCollection<Search> _search;
+        ObservableCollection<Search> GetSearches() 
         {
-            InitializeComponent();
-
-            listView.ItemsSource = new List<Search> 
+            return _search = new ObservableCollection<Search>
             {
                 new Search
                 {
@@ -33,11 +32,29 @@ namespace ListsExercise
 
             };
         }
+        public Airbnb()
+        {
+            InitializeComponent();
+
+            listView.ItemsSource = GetSearches();
+        }
 
         private void listView_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             var search = e.Item as Search;
             DisplayAlert("Tapped", search.Location, "OK");
+        }
+
+        private void Delete_Clicked(object sender, EventArgs e)
+        {
+            var search = (sender as MenuItem).CommandParameter as Search;
+            _search.Remove(search);
+        }
+
+        private void listView_Refreshing(object sender, EventArgs e)
+        {
+            listView.ItemsSource = GetSearches();
+            listView.EndRefresh();
         }
     }
 }
